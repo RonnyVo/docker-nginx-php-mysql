@@ -1,0 +1,15 @@
+# Global
+.*.swp
+.DS_Store
+
+# Application
+app/composer.json
+app/composer.lock
+app/vendor/
+data/
+
+# PHPStorm
+.idea
+
+# SSL Certs
+etc/ssl/

@@ -1,0 +1,1 @@
+Inspired from: https://github.com/nanoninja/docker-nginx-php-mysql
