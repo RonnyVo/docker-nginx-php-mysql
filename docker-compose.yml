@@ -16,7 +16,8 @@ services:
         - php
         - mysqldb
   php:
-    image: nanoninja/php-fpm:${PHP_VERSION}
+    build:
+      context: php
     volumes:
         - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
         - "${APP_PATH}:/var/www/html"
