@@ -18,14 +18,14 @@ services:
   php:
     build:
       context: php
+      args:
+        version: ${PHP_VERSION}
     volumes:
         - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
         - "${APP_PATH}:/var/www/html"
-  composer:
-    image: "composer"
-    volumes:
-        - "${APP_PATH}:/app"
-    command: install
+    depends_on:
+        - mysqldb
+    command: /bin/bash -c "composer install"
   mysqldb:
     image: mysql:${MYSQL_VERSION}
     container_name: ${MYSQL_HOST}
