@@ -5,7 +5,7 @@ services:
     volumes:
         - "./etc/ssl:/etc/ssl"
         - "${APP_PATH}:/var/www/html"
-        - "./etc/nginx/symfony2.conf:/etc/nginx/conf.d/default.template"
+        - "./etc/nginx/laravel.conf:/etc/nginx/conf.d/default.template"
     ports:
         - "8010:80"
         - "3010:443"
@@ -25,7 +25,6 @@ services:
         - "${APP_PATH}:/var/www/html"
     depends_on:
         - mysqldb
-    command: /bin/bash -c "composer install"
   mysqldb:
     image: mysql:${MYSQL_VERSION}
     container_name: ${MYSQL_HOST}
